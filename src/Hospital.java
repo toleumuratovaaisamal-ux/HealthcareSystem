@@ -1,6 +1,6 @@
 public class Hospital {
-    String name;
-    int capacity;
+    private String name;
+    private int capacity;
 
     public Hospital(String name, int capacity) {
         this.name = name;
@@ -8,6 +8,7 @@ public class Hospital {
     }
 
     public void printInfo() {
-        System.out.println("Hospital: " + name + ", Capacity: " + capacity);
+        System.out.println("Hospital: " + name +
+                ", Capacity: " + capacity);
     }
 }
