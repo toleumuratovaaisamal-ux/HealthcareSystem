@@ -6,10 +6,10 @@ import java.sql.DriverManager;
 public class DatabaseConnection {
 
     private static final String URL =
-            "jdbc:postgresql://localhost:5432/healthcare_system";
+            "jdbc:postgresql://localhost:5433/healthcare";
 
     private static final String USER = "postgres";
-    private static final String PASSWORD = "postgres123";
+    private static final String PASSWORD = "postgres";
 
     public static Connection getConnection() {
 

@@ -7,7 +7,7 @@ public class PatientDAO {
     // INSERT
     public static void addPatient(String name, int age) {
 
-        String sql = "INSERT INTO patient(name, age) VALUES (?, ?)";
+        String sql = "INSERT INTO users(name, email, age) VALUES (?, ?, ?)";
 
         try (
                 Connection conn = DatabaseConnection.getConnection();
@@ -15,10 +15,12 @@ public class PatientDAO {
         ) {
 
             ps.setString(1, name);
-            ps.setInt(2, age);
+            ps.setString(2, name.toLowerCase() + "@mail.com"); // auto email
+            ps.setInt(3, age);
+
             ps.executeUpdate();
 
-            System.out.println("Patient added successfully");
+            System.out.println("Patient added successfully ✅");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,7 +30,7 @@ public class PatientDAO {
     // SELECT
     public static void showPatients() {
 
-        String sql = "SELECT * FROM patient";
+        String sql = "SELECT * FROM users";
 
         try (
                 Connection conn = DatabaseConnection.getConnection();
@@ -39,7 +41,7 @@ public class PatientDAO {
             while (rs.next()) {
 
                 System.out.println(
-                        rs.getInt("patient_id") + " | " +
+                        rs.getInt("id") + " | " +
                                 rs.getString("name") + " | " +
                                 rs.getInt("age")
                 );
