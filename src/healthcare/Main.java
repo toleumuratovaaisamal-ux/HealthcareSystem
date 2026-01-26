@@ -6,11 +6,17 @@ public class Main {
 
         System.out.println("=== HEALTHCARE SYSTEM ===");
 
-        // ADD
+        // CREATE (INSERT)
         PatientDAO.addPatient("Aisamal", 18);
         PatientDAO.addPatient("Eldiyar", 20);
 
-        // SHOW
+        // UPDATE
+        PatientDAO.updatePatientAge(1, 25);
+
+        // DELETE (appointment жоқ user)
+        PatientDAO.deletePatient(6);
+
+        // READ (SHOW ALL)
         PatientDAO.showPatients();
     }
 }
